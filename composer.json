@@ -1,0 +1,20 @@
+{
+    "name": "hervormdputten/vault-php-sdk",
+    "description": "SDK to talk with vaultproject.io API (Guzzle 7)",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cees Bos",
+            "email": "cees.bos@hervormdputten.nl"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~7.0",
+        "psr/log": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HGP\\Vault\\": "src"
+        }
+    }
+}
