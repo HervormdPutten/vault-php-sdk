@@ -86,7 +86,7 @@ class Client
 
             $this->logger->error($message);
 
-            throw new ServerException($message);
+            throw new ServerException($message, 500);
         }
 
         $this->logger->debug(sprintf("Response:\n%s", (string) $response->getBody()));
