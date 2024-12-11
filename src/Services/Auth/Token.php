@@ -114,6 +114,24 @@ class Token
     }
 
     /**
+     * Renews a lease associated with a accessor ID.
+     *
+     * This is used to prevent the expiration of a token, and the automatic revocation of it.
+     *
+     * Token renewal is possible only if there is a lease associated with it.
+     *
+     * @see    https://developer.hashicorp.com/vault/api-docs/auth/token#renew-a-token-accessor
+     * @param  array  $body
+     * @return mixed
+     */
+    public function renewAccessor(array $body = [])
+    {
+        $body = OptionsResolver::resolve($body, ['accessor', 'increment']);
+        $params = ['body' => json_encode($body)];
+        return $this->client->post('/v1/auth/token/renew-accessor', $params);
+    }
+
+    /**
      * Revokes a token and all child tokens.
      *
      * When the token is revoked, all secrets generated with it are also revoked.
